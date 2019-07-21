@@ -23,29 +23,26 @@ var questions =[{
     answers:["Penny", "Nickel", "Dime", "Quarter"],
     correctAnswer: "Dime"
 },{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
+    question:"How did Scrooge McDuck become wealthy?",
+    answers:["Inheritance", "The Klondike Gold Rush", "Winning Lottery", "Striking Oil"],
+    correctAnswer: "The Klondike Gold Rush"
 },{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
+    question:"Why it Gryo Gearloose's profession?",
+    answers:["Daredevil", "Inventor", "Stunt Man", "Racecar Driver"],
+    correctAnswer: "Inventor"
 },{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
+    question:"What is the Name of Magica De Spell's pet Raven?",
+    answers:["Midnight", "Poe", "Heckle", "Jeckle"],
+    correctAnswer: "Poe"
 },{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
+    question:"How many episodes of the original DuckTales series were made?",
+    answers:["75", "100", "125", "150"],
+    correctAnswer: "100"
 },{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
-},{
-    question:"QQQQQQQQQQ?",
-    answers:["aa", "aa", "aa", "ca"],
-    correctAnswer: "ca"
+    question:"Scrooge is named after a charachter created by which author?",
+    answers:["Oscar Wilde", "Charles Dickens", "Mark Twain", "Henry Wadsworth Longfellow"],
+    correctAnswer: "Charles Dickens"
+    
 }];
 
 var game = {
@@ -78,6 +75,92 @@ var game = {
             } else {
                 game.incorrect++;
             }
-        })
+        });
+        $.each($('input[name="question-1]":checked'),function(){
+            if($(this).val()==questions[1].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-2]":checked'),function(){
+            if($(this).val()==questions[2].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-3]":checked'),function(){
+            if($(this).val()==questions[3].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-4]":checked'),function(){
+            if($(this).val()==questions[4].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-5]":checked'),function(){
+            if($(this).val()==questions[5].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-6]":checked'),function(){
+            if($(this).val()==questions[6].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-7]":checked'),function(){
+            if($(this).val()==questions[7].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-8]":checked'),function(){
+            if($(this).val()==questions[8].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-9]":checked'),function(){
+            if($(this).val()==questions[9].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-6]":checked'),function(){
+            if($(this).val()==questions[6].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($('input[name="question-6]":checked'),function(){
+            if($(this).val()==questions[6].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        this.result();
+    },
+    result: function(){
+        clearInterval(timer);
+        $('#subrwapper h2').remove();
+
+        $('#subwrapper').html(<h2>Finished!</h2>)
+        $('#subwrapper').append("<h3>Correct Answers: "+this.correct+"</h3>");
+        $('#subwrapper').append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
     }
 }

@@ -1,0 +1,12 @@
+body {
+	overflow: hidden;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: navy;
+	font-size: 20px;
+	background: #ffd80c url(../images/backgroundHDL.jpeg);
+	height: 100%;
+	width: 100%;
+	background-repeat:no-repeat;
+    background-position: center;
+}

@@ -2,7 +2,7 @@ $('#start').on('click', function(){
    game.start();
 })
 
-$(document).on('click', '#end', function(){
+$(document).on('click','#end', function(){
     game.done();
 })
 
@@ -12,7 +12,7 @@ var questions =[{
     correctAnswer: "Huey"
 },{
     question:"Who of the following is not a DuckTales villain?",
-    answers:["Magica DeSpell", "Doofus Drake", "Flintheart Glomgold", "The Beagle Boys"],
+    answers:["Magica DeSpell", "Doofus Drake", "Flintheart Glomgold", "Ma Beagle"],
     correctAnswer: "Doofus Drake"
 },{
     question:"What is Webbigail's favorite toy?",

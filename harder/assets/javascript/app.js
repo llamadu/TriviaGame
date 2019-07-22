@@ -149,7 +149,7 @@ var game = {
     },
     result: function(){
         clearInterval(timer);
-        $('#subwrapper h2').remove();
+        $('#subrwapper h2').remove();
 
         $('#subwrapper').html("<h2>Finished!</h2>");
         $('#subwrapper').append("<h3>Correct Answers: "+this.correct+"</h3>");

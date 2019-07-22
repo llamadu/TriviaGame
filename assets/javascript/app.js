@@ -2,6 +2,10 @@ $('#start').on('click', function(){
    game.start();
 })
 
+$(document).on('click', '#end', function(){
+    game.done();
+})
+
 var questions =[{
     question:"Who is the oldest?",
     answers:["Webby", "Dewey", "Louie", "Huey"],
@@ -24,14 +28,14 @@ var questions =[{
     correctAnswer: "Dime"
 },{
     question:"How did Scrooge McDuck become wealthy?",
-    answers:["Inheritance", "The Klondike Gold Rush", "Winning Lottery", "Striking Oil"],
+    answers:["Inheritance", "The Klondike Gold Rush", "Winning the Lottery", "Striking Oil"],
     correctAnswer: "The Klondike Gold Rush"
 },{
-    question:"Why it Gryo Gearloose's profession?",
+    question:"What is Gryo Gearloose's profession?",
     answers:["Daredevil", "Inventor", "Stunt Man", "Racecar Driver"],
     correctAnswer: "Inventor"
 },{
-    question:"What is the Name of Magica De Spell's pet Raven?",
+    question:"What is the Name of Magica De Spell's pet raven?",
     answers:["Midnight", "Poe", "Heckle", "Jeckle"],
     correctAnswer: "Poe"
 },{
@@ -67,6 +71,7 @@ var game = {
                 $("#subwrapper").append("<input type='radio' name ='question-"+i+"' value='"+questions[i].answers[j]+"'>"+questions[i].answers[j])  
             }
         }
+        $('#subwrapper').append('<br><button id="end">Done!</button>');
     },
     done: function(){
         $.each($('input[name="question-0]":checked'),function(){
@@ -139,28 +144,16 @@ var game = {
                 game.incorrect++;
             }
         });
-        $.each($('input[name="question-6]":checked'),function(){
-            if($(this).val()==questions[6].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
-        $.each($('input[name="question-6]":checked'),function(){
-            if($(this).val()==questions[6].correctAnswer){
-                game.correct++;
-            } else {
-                game.incorrect++;
-            }
-        });
+        
         this.result();
     },
     result: function(){
         clearInterval(timer);
         $('#subrwapper h2').remove();
 
-        $('#subwrapper').html(<h2>Finished!</h2>)
+        $('#subwrapper').html("<h2>Finished!</h2>");
         $('#subwrapper').append("<h3>Correct Answers: "+this.correct+"</h3>");
         $('#subwrapper').append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
+        $('#subwrapper').append("<h3>Unanswered: "+(questions.length-(this.incorrect+this.correct))+"</h3>");
     }
 }

@@ -1,3 +1,4 @@
+$(document).ready(function () {
 $('#start').on('click', function(){
    game.start();
 })
@@ -6,13 +7,17 @@ $(document).on('click','#end', function(){
     game.done();
 })
 
+//Launchpad: What's more important, a couple of quadrillion dollars or your life?
+//Scrooge: Is this a multiple-choice question?
+
+// Array containing questions and their respective answers
 var questions =[{
     question:"Who is the oldest?",
     answers:["Webby", "Dewey", "Louie", "Huey"],
     correctAnswer: "Huey"
 },{
     question:"Who of the following is not a DuckTales villain?",
-    answers:["Magica DeSpell", "Doofus Drake", "Flintheart Glomgold", "Ma Beagle"],
+    answers:["Magica DeSpell", "Flintheart Glomgold", "Doofus Drake", "Ma Beagle"],
     correctAnswer: "Doofus Drake"
 },{
     question:"What is Webbigail's favorite toy?",
@@ -36,7 +41,7 @@ var questions =[{
     correctAnswer: "Inventor"
 },{
     question:"What is the Name of Magica De Spell's pet raven?",
-    answers:["Midnight", "Poe", "Heckle", "Jeckle"],
+    answers:["Poe", "Midnight", "Heckle", "Jeckle"],
     correctAnswer: "Poe"
 },{
     question:"How many episodes of the original DuckTales series were made?",
@@ -56,7 +61,7 @@ var game = {
     countdown: function(){
         game.counter--;
         $('#counter').html(game.counter);
-        if(game.counter<=0){
+        if(game.counter === 0){
             console.log("Time is up!");
             game.done();
         }
@@ -74,7 +79,7 @@ var game = {
         $('#subwrapper').append('<br><button id="end">Done!</button>');
     },
     done: function(){
-        $.each($('input[name="question-0]":checked'),function(){
+        $.each($(input[name="question-0]":checked),function(){
             if($(this).val()==questions[0].correctAnswer){
                 game.correct++;
             } else {
@@ -157,3 +162,4 @@ var game = {
         $('#subwrapper').append("<h3>Unanswered: "+(questions.length-(this.incorrect+this.correct))+"</h3>");
     }
 }
+});
